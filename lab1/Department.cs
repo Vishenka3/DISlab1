@@ -10,6 +10,6 @@ namespace lab1
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public List<int> Workers { get; set; }
+        public int WorkersNumber { get; set; }
     }
 }

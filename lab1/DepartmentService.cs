@@ -23,8 +23,9 @@ namespace lab1
             Department tempDepartment = new Department();
             tempDepartment.Id = departmentsNumber;
             tempDepartment.Title = title;
+            tempDepartment.WorkersNumber = 0;
 
-            sw.WriteLine(tempDepartment.Id + " " + tempDepartment.Title);
+            sw.WriteLine(tempDepartment.Id + " " + tempDepartment.Title + "\n");
             sw.Close();
             fstr.Close();
 
@@ -39,16 +40,12 @@ namespace lab1
             {
                 Console.WriteLine(strArr[i]);
             }
-            String[] array = strArr[i - 1].Split(' ');
-
-            Console.WriteLine(array[array.Length-1] + "\n");
-            Console.WriteLine("\n");
-            Console.ReadKey();
         }
 
         public void deleteDepartment(DepartmentService entity)
         {
             entity.showAllDepartments();
+            Console.ReadKey();
             Console.WriteLine("Какой департамент хотите удалить?\n Введите номер: ");
             String id = Console.ReadLine();
 
@@ -58,4 +55,5 @@ namespace lab1
 
             File.WriteAllLines("D:\\7 сем\\РИС\\departments.txt", strArr);
         }
+    }
 }

@@ -23,15 +23,106 @@ namespace lab1
 
         public static void menu()
         {
-            Console.WriteLine("Выберете пункт меня:");
+            Console.WriteLine("Выберете пункт меню:");
 
-            Console.WriteLine("1: Добавить подразделение");
-            Console.WriteLine("2: Добавить сотрудника");
-            Console.WriteLine("3: Удалить подразделение");
-            Console.WriteLine("4: Удалить сотрудника");
-            Console.WriteLine("5: Показать все подразделения");
-            Console.WriteLine("6: Показать всех сотрудников");
-            Console.WriteLine("7: Назначит сотрудника в отдел");
+            Console.WriteLine("1: Работа с сотрудниками");
+            Console.WriteLine("2: Работа с дапартаментами");
+            Console.WriteLine("0: Выход");
+
+            String choice = Console.ReadLine();
+            WorkerService workerService = new WorkerService();
+            DepartmentService departmentService = new DepartmentService();
+
+            switch (choice)
+            {
+                case "1":
+                    {
+                        workersMenu();
+                        break;
+                    }
+                case "2":
+                    {
+                        departmentMenu();
+                        break;
+                    }
+                case "0":
+                    {
+                        break;
+                    }
+                default: break;
+            }
+        }
+
+        public static void workersMenu()
+        {
+            Console.WriteLine("Выберете пункт меню:");
+
+            Console.WriteLine("1: Добавить сотрудника");
+            Console.WriteLine("2: Удалить сотрудника");
+            Console.WriteLine("3: Показать всех сотрудников");
+            Console.WriteLine("4: Сортировка по фамилии");
+            Console.WriteLine("5: Поиск по фамилии");
+            Console.WriteLine("6: Назначит сотрудника в отдел");
+            Console.WriteLine("0: Выход\n");
+
+            String choice = Console.ReadLine();
+            WorkerService workerService = new WorkerService();
+            DepartmentService departmentService = new DepartmentService();
+
+            switch (choice)
+            {
+                case "1":
+                    {
+                        workerService.addWorker();
+                        break;
+                    }
+                case "2":
+                    {
+                        workerService.deleteWorker(workerService);
+                        break;
+                    }
+                case "3":
+                    {
+                        workerService.sortAllWorkers();
+                        Console.ReadKey();
+                        break;
+                    }
+                case "4":
+                    {
+                        workerService.showAllWorkers();
+                        Console.ReadKey();
+                        break;
+                    }
+                case "5":
+                    {
+                        workerService.showAllWorkers();
+                        Console.ReadKey();
+                        break;
+                    }
+                case "6":
+                    {
+                        workerService.attacheWorkerToDepartment(departmentService, workerService);
+                        break;
+                    }
+                case "0":
+                    {
+                        menu();
+                        break;
+                    }
+                default: break;
+            }
+        }
+
+        public static void departmentMenu()
+        {
+            Console.WriteLine("Выберете пункт меню:");
+
+            Console.WriteLine("1: Добавить отдел");
+            Console.WriteLine("2: Удалить отдел");
+            Console.WriteLine("3: Показать все отделы");
+            Console.WriteLine("4: Сортировка по названию");
+            Console.WriteLine("5: Поиск по названию");
+            Console.WriteLine("0: Выход\n");
 
             String choice = Console.ReadLine();
             WorkerService workerService = new WorkerService();
@@ -46,32 +137,30 @@ namespace lab1
                     }
                 case "2":
                     {
-                        workerService.addWorker();
+                        departmentService.deleteDepartment(departmentService);
                         break;
                     }
                 case "3":
                     {
-                        departmentService.deleteDepartment(departmentService);
+                        departmentService.showAllDepartments();
+                        Console.ReadKey();
                         break;
                     }
                 case "4":
                     {
-                        workerService.deleteWorker(workerService);
+                        departmentService.showAllDepartments();
+                        Console.ReadKey();
                         break;
                     }
                 case "5":
                     {
                         departmentService.showAllDepartments();
+                        Console.ReadKey();
                         break;
                     }
-                case "6":
+                case "0":
                     {
-                        workerService.showAllWorkers();
-                        break;
-                    }
-                case "7":
-                    {
-                        workerService.attacheWorkerToDepartment(departmentService, workerService);
+                        menu();
                         break;
                     }
                 default: break;
