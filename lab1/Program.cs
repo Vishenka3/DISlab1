@@ -47,6 +47,7 @@ namespace lab1
                     }
                 case "0":
                     {
+                        System.Environment.Exit(1);
                         break;
                     }
                 default: break;
@@ -83,19 +84,19 @@ namespace lab1
                     }
                 case "3":
                     {
-                        workerService.sortAllWorkers();
+                        workerService.showAllWorkers();
                         Console.ReadKey();
                         break;
                     }
                 case "4":
                     {
-                        workerService.showAllWorkers();
+                        workerService.sortAllWorkers();
                         Console.ReadKey();
                         break;
                     }
                 case "5":
                     {
-                        workerService.showAllWorkers();
+                        workerService.findWorker();
                         Console.ReadKey();
                         break;
                     }
@@ -148,13 +149,13 @@ namespace lab1
                     }
                 case "4":
                     {
-                        departmentService.showAllDepartments();
+                        departmentService.sortAllDepartments();
                         Console.ReadKey();
                         break;
                     }
                 case "5":
                     {
-                        departmentService.showAllDepartments();
+                        departmentService.findDepartment();
                         Console.ReadKey();
                         break;
                     }

@@ -9,8 +9,9 @@ namespace lab1
 {
     class WorkerService
     {
-        public bool addWorker () {
-            int workersNumber = File.ReadAllLines("D:\\7 сем\\РИС\\workers.txt").Length;
+        public bool addWorker ()
+        { // D:\\7 сем\\РИС\\workers.txt
+            int workersNumber = File.ReadAllLines("D:\\univ\\DISLab1\\workers.txt").Length;
 
             Console.WriteLine("Введите имя: ");
             String name = Console.ReadLine();
@@ -20,17 +21,16 @@ namespace lab1
             String salary = Console.ReadLine();
 
             
-            FileStream fstr = new FileStream("D:\\7 сем\\РИС\\workers.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            FileStream fstr = new FileStream("D:\\univ\\DISLab1\\workers.txt", FileMode.OpenOrCreate, FileAccess.Write);
             fstr.Seek(0, SeekOrigin.End);
             StreamWriter sw = new StreamWriter(fstr);
 
             Worker tempWorker = new Worker();
-            tempWorker.Id = workersNumber;
             tempWorker.Name = name;
             tempWorker.Age = int.Parse(age);
             tempWorker.Salary = int.Parse(salary);
 
-            sw.WriteLine(tempWorker.Id + " " + tempWorker.Name + " " + tempWorker.Age + " " + tempWorker.Salary + "\n");
+            sw.WriteLine(tempWorker.Name + " " + tempWorker.Age + " " + tempWorker.Salary);
             sw.Close();
             fstr.Close();
 
@@ -38,25 +38,40 @@ namespace lab1
         }
 
         public void showAllWorkers() {
-            String[] strArr = File.ReadAllLines("D:\\7 сем\\РИС\\workers.txt");
+            String[] strArr = File.ReadAllLines("D:\\univ\\DISLab1\\workers.txt");
 
             for (int i = 0; i < strArr.Length; i++)
             {
                 Console.WriteLine(strArr[i]);
-                Console.WriteLine("\n");
+                //Console.WriteLine("\n");
             }
         }
 
         public void sortAllWorkers()
         {
-            String[] strArr = File.ReadAllLines("D:\\7 сем\\РИС\\workers.txt");
+            String[] strArr = File.ReadAllLines("D:\\univ\\DISLab1\\workers.txt");
 
             Array.Sort(strArr);
 
             for (int i = 0; i < strArr.Length; i++)
             {
                 Console.WriteLine(strArr[i]);
-                Console.WriteLine("\n");
+                // Console.WriteLine("\n");
+            }
+        }
+
+        public void findWorker()
+        {
+            String[] strArr = File.ReadAllLines("D:\\univ\\DISLab1\\workers.txt");
+            Console.WriteLine("Введите значение поиска: ");
+            String param = Console.ReadLine();
+
+            String[] results = Array.FindAll(strArr, S => S.StartsWith(param));
+
+            for (int i = 0; i < results.Length; i++)
+            {
+                Console.WriteLine(results[i]);
+                // Console.WriteLine("\n");
             }
         }
 
@@ -68,10 +83,10 @@ namespace lab1
             String id = Console.ReadLine();
 
 
-            String[] strArr = File.ReadAllLines("D:\\7 сем\\РИС\\workers.txt");
+            String[] strArr = File.ReadAllLines("D:\\univ\\DISLab1\\workers.txt");
             strArr[int.Parse(id)] = String.Empty;
 
-            File.WriteAllLines("D:\\7 сем\\РИС\\workers.txt", strArr);
+            File.WriteAllLines("D:\\univ\\DISLab1\\workers.txt", strArr);
         }
 
         public void attacheWorkerToDepartment(DepartmentService entity, WorkerService workerEntity)
@@ -84,10 +99,10 @@ namespace lab1
             entity.showAllDepartments();
             String departmentId = Console.ReadLine();
 
-            String[] workersArr = File.ReadAllLines("D:\\7 сем\\РИС\\workers.txt");
+            String[] workersArr = File.ReadAllLines("D:\\univ\\DISLab1\\workers.txt");
             String[] workerStringArray = workersArr[int.Parse(workerId)].Split(' ');
 
-            String[] depsArr = File.ReadAllLines("D:\\7 сем\\РИС\\departments.txt");
+            String[] depsArr = File.ReadAllLines("D:\\univ\\DISLab1\\workers.txt");
             String[] depStringArray = depsArr[int.Parse(departmentId)].Split(' ');
 
             
@@ -109,8 +124,8 @@ namespace lab1
                 Console.WriteLine("Работник уже назначен в департамент!\n");
             }
             Console.ReadKey();
-            File.WriteAllLines("D:\\7 сем\\РИС\\workers.txt", workersArr);
-            File.WriteAllLines("D:\\7 сем\\РИС\\departments.txt", depsArr);
+            File.WriteAllLines("D:\\univ\\DISLab1\\workers.txt", workersArr);
+            File.WriteAllLines("D:\\univ\\DISLab1\\departments.txt", depsArr);
         }
     }
 }

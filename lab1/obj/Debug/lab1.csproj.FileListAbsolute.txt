@@ -4,3 +4,10 @@ D:\7 сем\РИС\lab1\lab1\bin\Debug\lab1.pdb
 D:\7 сем\РИС\lab1\lab1\obj\Debug\lab1.csprojResolveAssemblyReference.cache
 D:\7 сем\РИС\lab1\lab1\obj\Debug\lab1.exe
 D:\7 сем\РИС\lab1\lab1\obj\Debug\lab1.pdb
+D:\univ\DISlab1\lab1\bin\Debug\lab1.exe.config
+D:\univ\DISlab1\lab1\bin\Debug\lab1.exe
+D:\univ\DISlab1\lab1\bin\Debug\lab1.pdb
+D:\univ\DISlab1\lab1\obj\Debug\lab1.csprojAssemblyReference.cache
+D:\univ\DISlab1\lab1\obj\Debug\lab1.csproj.CoreCompileInputs.cache
+D:\univ\DISlab1\lab1\obj\Debug\lab1.exe
+D:\univ\DISlab1\lab1\obj\Debug\lab1.pdb
